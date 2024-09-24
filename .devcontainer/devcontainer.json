@@ -1,0 +1,57 @@
+{
+  "name": "Golang 1.23 dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "ALPINE_VERSION": "3.20",
+      "GO_VERSION": "1.23.1"
+    }
+  },
+  "forwardPorts": [8080],
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.Go",
+        "fill-labs.dependi",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.makefile-tools",
+        "eamodio.gitlens",
+        "davidanson.vscode-markdownlint",
+        "vscode-icons-team.vscode-icons",
+        "redhat.vscode-yaml",
+        "mohsen1.prettify-json",
+        "quicktype.quicktype",
+        "zxh404.vscode-proto3",
+        "shardulm94.trailing-spaces"
+      ]
+    },
+    "settings": {
+      "files.eol": "\n",
+      "editor.formatOnSave": true,
+      "go.buildTags": "",
+      "go.toolsEnvVars": {
+        "CGO_ENABLED": "0"
+      },
+      "go.useLanguageServer": true,
+      "go.testEnvVars": {
+        "CGO_ENABLED": "1"
+      },
+      "go.testFlags": ["-v", "-race"],
+      "go.coverOnSingleTest": true,
+      "go.coverOnSingleTestFile": true,
+      "go.coverOnTestPackage": true,
+      "go.lintTool": "golangci-lint",
+      "go.lintOnSave": "package",
+      "[go]": {
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "always"
+        }
+      },
+      "gopls": {
+        "usePlaceholders": false,
+        "staticcheck": true
+      }
+    }
+  }
+}
